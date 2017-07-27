@@ -25,12 +25,10 @@ function ensureOriginOnExports(executed: any, name: any) {
 	Origin.set(target, new Origin(name, "default"));
 
 	for (key in target) {
-		if (target.hasOwnProperty(key)) {
-			exportedValue = target[key];
+		exportedValue = target[key];
 
-			if (typeof exportedValue === "function") {
-				Origin.set(exportedValue, new Origin(name, key));
-			}
+		if (typeof exportedValue === "function") {
+			Origin.set(exportedValue, new Origin(name, key));
 		}
 	}
 
@@ -63,16 +61,14 @@ export class SystemStaticAureliaLoader extends Loader {
 		let that = this;
 		PLATFORM.eachModule = (callback) => {
 			for (let key in that.moduleRegistry) {
-				if (that.moduleRegistry.hasOwnProperty(key)) {
-					try {
-						if (that.moduleRegistry[key]) {
-							if (callback(key, that.moduleRegistry[key])) {
-								return;
-							}
+				try {
+					if (that.moduleRegistry[key]) {
+						if (callback(key, that.moduleRegistry[key])) {
+							return;
 						}
-					} catch (e) {
-						this.logger.error("eachModule => ", e);
 					}
+				} catch (e) {
+					this.logger.error("eachModule => ", e);
 				}
 			}
 		};

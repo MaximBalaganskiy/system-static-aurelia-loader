@@ -77,11 +77,9 @@ function ensureOriginOnExports(executed, name) {
     }
     aurelia_metadata_1.Origin.set(target, new aurelia_metadata_1.Origin(name, "default"));
     for (key in target) {
-        if (target.hasOwnProperty(key)) {
-            exportedValue = target[key];
-            if (typeof exportedValue === "function") {
-                aurelia_metadata_1.Origin.set(exportedValue, new aurelia_metadata_1.Origin(name, key));
-            }
+        exportedValue = target[key];
+        if (typeof exportedValue === "function") {
+            aurelia_metadata_1.Origin.set(exportedValue, new aurelia_metadata_1.Origin(name, key));
         }
     }
     return executed;
@@ -110,17 +108,15 @@ var SystemStaticAureliaLoader = (function (_super) {
         var that = _this;
         aurelia_pal_1.PLATFORM.eachModule = function (callback) {
             for (var key in that.moduleRegistry) {
-                if (that.moduleRegistry.hasOwnProperty(key)) {
-                    try {
-                        if (that.moduleRegistry[key]) {
-                            if (callback(key, that.moduleRegistry[key])) {
-                                return;
-                            }
+                try {
+                    if (that.moduleRegistry[key]) {
+                        if (callback(key, that.moduleRegistry[key])) {
+                            return;
                         }
                     }
-                    catch (e) {
-                        _this.logger.error("eachModule => ", e);
-                    }
+                }
+                catch (e) {
+                    _this.logger.error("eachModule => ", e);
                 }
             }
         };
