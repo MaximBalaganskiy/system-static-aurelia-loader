@@ -26,5 +26,6 @@ import "system-static-aurelia-loader";
 
 ### How to develop/improve loader
 
- * run `gulp build` to create new build
+* run `npm install` to install dependencies
+* run `gulp build` to create new build
  
