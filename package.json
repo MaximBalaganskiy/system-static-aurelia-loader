@@ -1,0 +1,41 @@
+{
+  "name": "system-static-aurelia-loader",
+  "version": "2.0.0",
+  "description": "SystemJs static loader for Aurelia framework",
+  "keywords": [
+    "aurelia",
+    "systemjs",
+    "static",
+    "sfx",
+    "typescript"
+  ],
+  "homepage": "https://github.com/MaximBalaganskiy/system-static-aurelia-loader",
+  "bugs": {
+    "url": "https://github.com/MaximBalaganskiy/system-static-aurelia-loader/issues"
+  },
+  "license": "MIT",
+  "author": "Maxim Balaganskiy",
+  "scripts": {
+    "prepare": "./node_modules/.bin/typings install"
+  },
+  "main": "dist/commonjs/system-static-aurelia-loader.js",
+  "typings": "dist/commonjs/system-static-aurelia-loader.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaximBalaganskiy/system-static-aurelia-loader"
+  },
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-typescript": "^3.1.7",
+    "merge2": "^1.1.0",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.0.0",
+    "typings": "^2.1.1",
+    "tslint": "^5.4.3",
+    "typescript": "^2.4.2",
+    "vinyl-paths": "^2.1.0"
+  }
+}
